@@ -1,0 +1,28 @@
+debug_level: DEBUG
+test: Global
+
+mongo: &mongo
+  host:   '***'
+  #port:     27017
+  database: services
+  #auth:     services
+  #login: test
+
+gunicorn:
+  bind:         127.0.0.1:6000
+  workers:      2                               # (multiprocessing.cpu_count() * 2) + 1
+  #  worker_class: app.Worker
+  reload:       true
+#  child_exit:   child_exit
+
+ota_worker:
+  debug_level: DEBUG
+  ota_api:
+  #  wsdl:     ******
+  #    auth:     basic
+  #    username: -------
+  #    password: *******
+  ota_rest:
+#    host:     ****
+#    username: -------
+#    password: *******
